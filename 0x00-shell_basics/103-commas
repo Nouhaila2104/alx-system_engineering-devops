@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -xamp
+ls -ap1 | grep -vE '^\.$|^\.\.$' | sed -e 's/$/,/' -e '/\/$/s/$/\//' | LC_COLLATE=C sort | tr -d '\n' | echo "$(cat -) "
